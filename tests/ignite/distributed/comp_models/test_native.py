@@ -488,7 +488,7 @@ def test__native_dist_model_spawn_gloo(init_method, dirname):
         _test__native_dist_model_spawn(
             "gloo", num_workers_per_machine=nproc, device=device, start_method="fork", init_method=init_method
         )
-
+init_method = 'file:///tmp/tmpgxo8tenv/shared', dirname = '/tmp/tmpgxo8tenv'
 
 @pytest.mark.distributed
 @pytest.mark.skipif("WORLD_SIZE" in os.environ, reason="Skip if launched as multiproc")
