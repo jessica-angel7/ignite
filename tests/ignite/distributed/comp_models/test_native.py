@@ -483,10 +483,10 @@ def test__native_dist_model_spawn_gloo(init_method, dirname):
 
     nproc = torch.cuda.device_count() if torch.cuda.is_available() else 4
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    _test__native_dist_model_spawn("gloo", num_workers_per_machine=nproc, device=device, init_method=init_method)
+    _test__native_dist_model_spawn("gloo", num_workers_per_machine=nproc, device=device, init_method=init_method, **spawn_kwargs)
     if device.type == "cpu":
         _test__native_dist_model_spawn(
-            "gloo", num_workers_per_machine=nproc, device=device, start_method="fork", init_method=init_method
+            "gloo", num_workers_per_machine=nproc, device=device, start_method="fork", init_method=init_method, **spawn_kwargs
         )
 
 
